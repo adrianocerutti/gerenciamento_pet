@@ -1,0 +1,6 @@
+asgiref==3.5.1
+Django==3.0.7
+django-adminlte2==0.4.3
+mysqlclient==1.4.6
+pytz==2022.1
+sqlparse==0.4.2
