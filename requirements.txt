@@ -1,6 +1,10 @@
 asgiref==3.5.1
+autopep8==1.6.0
+axado.django-localflavor-br==1.0.1
 Django==3.0.7
 django-adminlte2==0.4.3
 mysqlclient==1.4.6
+pycodestyle==2.8.0
 pytz==2022.1
 sqlparse==0.4.2
+toml==0.10.2
