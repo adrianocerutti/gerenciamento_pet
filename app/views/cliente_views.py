@@ -61,6 +61,8 @@ def cadastrar_cliente(request):
 
 def editar_cliente(request, id):
     cliente_editar = cliente_service.listar_cliente_id(id)
+    cliente_editar.data_nascimento = cliente_editar.data_nascimento.strftime(
+        '%Y-%m-%d')  # Conversão da data
     form_cliente = ClienteForm(request.POST or None, instance=cliente_editar)
     endereco_editar = endereco_service.listar_endereco_id(
         cliente_editar.endereco.id)
