@@ -16,4 +16,6 @@ urlpatterns = [
     path('listar_pet/<int:id>', pet_views.listar_pet_id, name='listar_pet_id'),
     path('cadastrar_consulta/<int:id>',
          consulta_views.inserir_consulta, name='cadastrar_consulta'),
+    path('lista_consulta/<int:id>',
+         consulta_views.listar_consulta_id, name='listar_consulta_id'),
 ]

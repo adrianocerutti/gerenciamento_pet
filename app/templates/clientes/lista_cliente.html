@@ -82,6 +82,11 @@ Listagem de Cliente
                                     <div class="timeline-body">
                                         {{consulta.motivo_consulta}}
                                     </div>
+                                    <div class="timeline-footer">
+                                      <a href="{% url 'listar_consulta_id' consulta.id %}" class="btn btn-primary btn-xs">
+                                        Visualizar consulta
+                                      </a>
+                                    </div>
                                 </div>
                             </li>
                         
