@@ -1,5 +1,6 @@
 class ConsultaPet():
-    def __init__(self, pet, motivo_consulta, peso_atual, medicamento_atual, medicamentos_prescritos, exames_prescritos, data=""):
+    def __init__(self, pet, motivo_consulta, peso_atual, medicamento_atual, medicamentos_prescritos,
+                 exames_prescritos, data=""):
         self.__pet = pet
         self.__motivo_consulta = motivo_consulta
         self.__peso_atual = peso_atual

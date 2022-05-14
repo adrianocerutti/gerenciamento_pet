@@ -1,8 +1,9 @@
 from django.shortcuts import redirect, render
 
-from ..entidades import consulta
 from ..forms import consulta_forms
-from ..services import consulta_service, pet_service
+from ..services import pet_service, consulta_service
+from ..entidades import consulta
+
 
 
 def inserir_consulta(request, id):
@@ -15,15 +16,15 @@ def inserir_consulta(request, id):
             medicamento_atual = form_consulta.cleaned_data["medicamento_atual"]
             medicamentos_prescritos = form_consulta.cleaned_data["medicamentos_prescritos"]
             exames_prescritos = form_consulta.cleaned_data["exames_prescritos"]
-            consulta_nova = consulta.ConsultaPet(pet=pet, motivo_consulta=motivo_consulta, peso_atual=peso_atual,
-                                                 medicamento_atual=medicamento_atual, medicamentos_prescritos=medicamentos_prescritos,
+            consulta_nova = consulta.ConsultaPet(pet=pet, motivo_consulta=motivo_consulta,
+                                                 peso_atual=peso_atual, medicamento_atual=medicamento_atual,
+                                                 medicamentos_prescritos=medicamentos_prescritos,
                                                  exames_prescritos=exames_prescritos)
-            consulta_service.cadastrar_consulta(consulta_nova)
+            consulta_service.cadastar_consulta(consulta_nova)
             return redirect('listar_pet_id', pet.id)
     else:
         form_consulta = consulta_forms.ConsultaPetForm()
     return render(request, 'consultas/form_consulta.html', {'form_consulta': form_consulta})
-
 
 def listar_consulta_id(request, id):
     consulta = consulta_service.listar_consulta(id)
