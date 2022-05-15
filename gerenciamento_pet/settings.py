@@ -128,3 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'app.Funcionario'
+
+LOGOUT_URL = 'logout'
+
+LOGIN_URL = 'login'
