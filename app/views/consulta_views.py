@@ -1,11 +1,12 @@
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import redirect, render
 
-from ..forms import consulta_forms
-from ..services import pet_service, consulta_service
 from ..entidades import consulta
+from ..forms import consulta_forms
+from ..services import consulta_service, pet_service
 
 
-
+@user_passes_test(lambda u: u.cargo == 1)
 def inserir_consulta(request, id):
     if request.method == "POST":
         form_consulta = consulta_forms.ConsultaPetForm(request.POST)
@@ -26,6 +27,8 @@ def inserir_consulta(request, id):
         form_consulta = consulta_forms.ConsultaPetForm()
     return render(request, 'consultas/form_consulta.html', {'form_consulta': form_consulta})
 
+
+@login_required()
 def listar_consulta_id(request, id):
     consulta = consulta_service.listar_consulta(id)
     return render(request, 'consultas/lista_consulta.html', {'consulta': consulta})
