@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
+from gerenciamento_pet import settings
 
 from ..entidades import consulta
 from ..forms import consulta_forms
@@ -43,7 +44,7 @@ def enviar_email_consulta(request, id):
     html_conteudo = render_to_string(
         'consultas/consulta_email.html', {'consulta': consulta})
     corpo_email = 'Resumo da sua consulta'
-    email_remetente = 'adrianocerutti@gmail.com'
+    email_remetente = settings.EMAIL_HOST_USER
     email_destino = [pet_consulta.dono.email, ]
     send_mail(assunto, corpo_email, email_remetente,
               email_destino, html_message=html_conteudo)

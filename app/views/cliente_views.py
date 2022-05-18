@@ -64,7 +64,7 @@ def cadastrar_cliente(request):
     return render(request, 'clientes/form_cliente.html', {'form_cliente': form_cliente, 'form_endereco': form_endereco})
 
 
-@user_passes_test(lambda u: u.cargo == 2)
+@user_passes_test(lambda u: u.cargo == 1)
 def editar_cliente(request, id):
     cliente_editar = cliente_service.listar_cliente_id(id)
     cliente_editar.data_nascimento = cliente_editar.data_nascimento.strftime(
