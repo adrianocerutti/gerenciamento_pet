@@ -43,6 +43,11 @@ Listagem de Consulta
 
     <div class="row no-print">
         <div class="col-xs-12">
+            <a href="{% url 'enviar_consulta' consulta.id %}">
+                <button type="button" class="btn btn-alert pull-left">
+                    <i class="fa fa-send"> Enviar por e-mail</i>
+                </button>
+            </a>
             <button type="button" class="btn btn-primary pull-right" onclick="window.print();">
                 <i class="fa fa-print"> Imprimir</i>
             </button>
